@@ -35,8 +35,6 @@ import OrgCamList from "./component/org/lists/OrgCamList";
 import OrgEdit from "./pages/org/OrgEdit";
 import OrgWithdraw from "./pages/org/OrgWithdraw";
 import PwdConfirm from "./pages/org/EditPwdConfirm";
-import { ChangePassword } from "./component/auth/ChangePassword";
-import SendEmail from "./pages/auth/SendEmail";
 import OauthKakao from "./pages/auth/OauthKakao";
 import ModifyUser from "./pages/users/ModifyUser";
 import Withdrawal from "./pages/users/Withdrawal";
@@ -68,7 +66,6 @@ function App() {
               <Route path="/socialsignup/" element={authCtx.isLoggedIn ? <Navigate to='/' /> : <SocialSignup />} />
               <Route path="/findid/" element={<FindId/>}></Route>
               <Route path="/findpw/" element={<FindPw/>}></Route>
-              {/* <Route path="/password/" element={<ChangePassword/>}></Route> */}
 
               <Route path="/myPage" element={authCtx.isLoggedIn ? <MyPage /> : <Navigate to='/' />} children={[
                 <Route key="history" index element={<Navigate to="history" />} />,
@@ -83,7 +80,6 @@ function App() {
                 <Route key="modify" path="modify" element={<ModifyUser />} />,
                 <Route key="withdraw" path="withdraw" element={<Withdrawal />} />
               ]}/>
-              {/* <Route path="/sendemail" element={<SendEmail/>}></Route> */}
 
             <Route path="/">
               <Route index element={<Main />} />
@@ -107,7 +103,6 @@ function App() {
               <Route path="reviewUpdate">
                 <Route path=":reviewCode" element={decodedToken?.memberRole === "ROLE_ORG" ? <ReviewModify /> : <Navigate to='/' />} />
               </Route>
-              {/* <Route path="textmessage" element={<TextMessage />}/> */}
             </Route>
 
             <Route path="/campaign/:campaignCode/donations">
