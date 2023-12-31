@@ -34,8 +34,6 @@ function BubbleList({ setIsShow }) {
     useEffect(() => {
         scrollToBottom();
     },[bubbles]);
-
-    console.log(bubbles)
     
     /* 질문을 눌렀을 경우 기존 말풍선 리스트에 답변 말풍선을 추가하고 싶음 */
     let requestCssClass = "requestBoxClass"
@@ -55,7 +53,6 @@ function BubbleList({ setIsShow }) {
             questionContent: answerArray[questionCode-1],
             cssCondition: responseCssClass
         });
-        // console.log(changeBubbles);
         setMadekey(madeKey + 2);
         setBubbles(changeBubbles);
         setAnyQuestion(true);

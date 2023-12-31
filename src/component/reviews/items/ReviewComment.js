@@ -19,8 +19,6 @@ export function ReviewComment ({ review }) {
   const token = localStorage.getItem('token');
   const decodedToken = token ? jwtDecode(token) : null;
 
-  console.log('Decoded Token:', decodedToken);
-
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [ revCommentContent, setRevCommentContent ] = useState('');
@@ -38,17 +36,10 @@ export function ReviewComment ({ review }) {
       memberCode: decodedToken && decodedToken.memberCode,
     })
     
-
-    console.log("reviewCode is? : ", reviewCode);
-
-    console.log('is review in reviewComments? : ', review);
-    
     const formData = new FormData();
 
     formData.append("revCommentContent", form.revCommentContent);
     formData.append("memberCode", decodedToken && decodedToken.memberCode);
-
-    console.log("comment is???: ", revCommentContent)
 
     const handleCommentSubmit = async (e) => {
       e.preventDefault();
@@ -196,8 +187,6 @@ export function ReviewComment ({ review }) {
       fetchCommentEmail();
     }
   }, [review.reviewCommentList]);
-
-  console.log("emails?????/",commentEmail[3]);
 
   const hideEmailCharacters = (email) => {
     if (email && email.indexOf) {
